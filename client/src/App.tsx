@@ -1,7 +1,7 @@
 import React from "react";
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Button from '@material-ui/core/Button';
-import * as css from "./app.module.css";
+import css from "./app.module.css";
 
 const App = () => (
   <div>
