@@ -1,8 +1,8 @@
 import path from "path";
 import webpack from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { Configuration as WebpackConfiguration } from "webpack";
-import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
+import {Configuration as WebpackConfiguration} from "webpack";
+import {Configuration as WebpackDevServerConfiguration} from "webpack-dev-server";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 
@@ -34,16 +34,31 @@ const config: webpack.Configuration = {
       },
       {
         test: /\.css$/i,
+        include: path.join(__dirname, 'src'),
         exclude: /node_modules/,
         use: [
           'style-loader',
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              modules: true,
-            },
-          },
-        ],
+              modules: {
+                compileType: "module",
+                mode: "local",
+                auto: true,
+                exportGlobals: true,
+                localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                localIdentContext: path.resolve(__dirname, "src"),
+                localIdentHashPrefix: "my-custom-hash",
+                namedExport: true,
+                exportLocalsConvention: "camelCaseOnly",
+                exportOnlyLocals: false,
+              },
+              sourceMap: true,
+              esModule: true,
+              importLoaders: 2,
+            }
+          }
+        ]
       },
     ],
   },

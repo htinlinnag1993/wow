@@ -13,6 +13,7 @@
     "noEmit": true,
     "jsx": "react",
     "noImplicitAny": false,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "include": ["src"],
   "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
