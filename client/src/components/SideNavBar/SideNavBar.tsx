@@ -62,7 +62,9 @@ const SideNavBar = () => {
         }}
         anchor="left"
       >
-        <div className={classes.toolbar} />
+        {/* <div className={classes.toolbar} /> */}
+        <div>
+        </div>
         <Divider />
         <List>
           {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
