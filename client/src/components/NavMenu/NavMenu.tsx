@@ -12,6 +12,7 @@ import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import PersonIcon from '@material-ui/icons/Person';
 import HomeIcon from '@material-ui/icons/Home';
+import LockIcon from '@material-ui/icons/Lock';
 
 import {INavMenu} from "../../shared/interfaces";
 
@@ -31,6 +32,11 @@ const navMenuItems = [
     label: "Profile",
     link: "/profile",
     render: () => renderIcon(PersonIcon),
+  },
+  {
+    label: "Logout",
+    link: "/logout",
+    render: () => renderIcon(LockIcon),
   },
 ];
 
@@ -68,7 +74,9 @@ const NavMenu:FC<INavMenu> = () => {
       </div>
       <List>
         {navMenuItems.map(({label, link, render}, index) => {
-          const CustomLink = props => <Link to={link} {...props} />
+          const CustomLink = React.forwardRef<unknown>(function CustomLinkeWrapper(props, ref) {
+            return <Link to={link} {...props} />;
+          });
           return (
             <ListItem button key={label} component={CustomLink}>
               <ListItemIcon>{render()}</ListItemIcon>

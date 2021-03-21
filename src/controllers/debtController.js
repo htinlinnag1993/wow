@@ -25,8 +25,10 @@ const DebtController = {
   // Get debts from the database and send them in the response
   // This should send the found debts
   async getDebts(req, res) {
+    const {query} = req;
+    console.log(query);
     try {
-      const existingDebts = await Debt.find({});
+      const existingDebts = await Debt.find(query);
       console.log(existingDebts);
       res.status(200).json(existingDebts);
     } catch (e) {

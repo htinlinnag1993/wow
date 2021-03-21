@@ -114,7 +114,22 @@ const SideNavBar: FC<ISideNavBar> = ({ window, children }) => {
         </Hidden>
       </nav>
       <main className={classes.content}>
-        {/* <div className={classes.toolbar} /> */}
+        <div className={classes.toolbar}>
+          {/* <Typography 
+            variant="h3" 
+            gutterBottom
+            color="primary"
+          >
+            Htin
+          </Typography> */}
+        </div>
+        <Typography 
+          variant="h3" 
+          gutterBottom
+          color="primary"
+        >
+          Htin
+        </Typography>
         {children}
       </main>
     </div>
